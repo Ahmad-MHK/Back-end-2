@@ -12,9 +12,12 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'status' => AppointmentStatus::class
-    ];
+        protected $casts = [
+            'date' => 'date',
+            'start' => 'datetime:H:i', // Ensuring correct time format
+            'status' => AppointmentStatus::class,
+        ];
+
 
     public function customer(): BelongsTo
     {

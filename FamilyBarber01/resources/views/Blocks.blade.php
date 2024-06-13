@@ -10,7 +10,7 @@
             <div class="right-inside-block-mini-text"><h5 class="white"> Druten hawn 123</h5></div>
         </div>
     </a>
-    <a href="/contact" class="Block-afspreak">
+    <a href="/inplannen" class="Block-afspreak">
         <div class="left-inside-block"><img class="left-inside-block-img" src="  https://cdn-icons.flaticon.com/svg/14703/14703107.svg?token=exp=1716146094~hmac=70050fd8d3a7b785b04c9819a1cdd5be  "></div>
         <div class="right-inside-block">
             <div class="right-inside-block-main-text"><h3 class="white">Inplannen</h3></div>

@@ -19,9 +19,10 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Select;
 use App\Enums\AppointmentStatus;
+use App\Enums\AppointmentTime;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\DateTimePicker;
-
+use Filament\Forms\Components\Tabs\Tab;
 
 class AppointmentResource extends Resource
 {
@@ -35,33 +36,15 @@ class AppointmentResource extends Resource
             ->schema([
                 Section::make([
                     Select::make('Ourteam_id')
-                    ->relationship('Ourteam', 'full-name')
+                    ->relationship('Ourteam', 'fullname')
                     ->searchable()
-                    ->preload()
-                    ->required(),
-                    DateTimePicker::make('date')
+                    ->preload(),
+                    DatePicker::make('date')
                         ->native(false)
                         ->live()
-                        ->displayFormat('h:i A')
                         ->seconds(false)
                         ->required(),
-
                     TimePicker::make('start')
-                        ->required()
-                        ->seconds(false)
-                        ->displayFormat('h:i A')
-                        ->minutesStep(10)
-                        ->datalist([
-                            '09:00',
-                            '09:30',
-                            '10:00',
-                            '10:30',
-                            '11:00',
-                            '11:30',
-                            '12:00',
-                        ])
-                        ,
-                    TimePicker::make('end')
                         ->required()
                         ->seconds(false)
                         ->displayFormat('h:i A')
@@ -69,14 +52,13 @@ class AppointmentResource extends Resource
                     Select::make('customer_id')
                         ->relationship('customer', 'name')
                         ->searchable()
-                        ->preload()
-                        ->required(),
-                    TextInput::make('description')
-                        ->required(),
+                        ->preload(),
+                    TextInput::make('description'),
                     Select::make('status')
                         ->native(false)
+                        ->required()
                         ->options(AppointmentStatus::class)
-                        ->visibleOn(Pages\EditAppointment::class)
+                        ->visibleOn(Pages\EditAppointment::class),
                 ])
             ]);
 
@@ -85,10 +67,15 @@ class AppointmentResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        // ->groups([
+        //     Tables\Grouping\Group::make('date')
+        //     ->collapsible(),
+        // ])
+
         ->columns([
-            Tables\Columns\ImageColumn::make('ourteam.image')
+            Tables\Columns\ImageColumn::make('ourteam.ourteamimage')
                     ->circular(),
-            TextColumn::make('ourteam.full-name')
+            TextColumn::make('ourteam.fullname')
                 ->searchable()
                 ->sortable(),
             TextColumn::make('customer.name')
@@ -98,14 +85,13 @@ class AppointmentResource extends Resource
                 ->date('M d Y')
                 ->sortable(),
             TextColumn::make('start')
-                ->time('h:i A')
-                ->label('From')
                 ->sortable()
-                ,
-            TextColumn::make('end')
                 ->time('h:i A')
-                ->label('To')
-                ->sortable(),
+                ,
+            // TextColumn::make('end')
+            //     ->time('h:i A')
+            //     ->label('To')
+            //     ->sortable(),
             TextColumn::make('status')
                 ->badge()
                 ->sortable()

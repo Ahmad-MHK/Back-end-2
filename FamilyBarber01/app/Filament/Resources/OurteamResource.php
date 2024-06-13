@@ -29,11 +29,11 @@ class OurteamResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')
+                FileUpload::make('ourteamimage')
                     ->image()
                     ->imageEditor()
                     ->required(),
-                TextInput::make('full-name')
+                TextInput::make('fullname')
                     ->required(),
                 TextInput::make('speciality'),
             ]);
@@ -43,9 +43,9 @@ class OurteamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
+                Tables\Columns\ImageColumn::make('ourteamimage')
                     ->circular(),
-                Tables\Columns\TextColumn::make('full-name')
+                Tables\Columns\TextColumn::make('fullname')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('speciality')

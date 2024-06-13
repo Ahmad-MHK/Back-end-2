@@ -54,7 +54,7 @@
                                     <a class="nav-link" href="#">Shop</a>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="#">Contact</a>
+                                    <a class="nav-link" href="/contact">Contact</a>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <a class="nav-link" href="#">Shop</a>

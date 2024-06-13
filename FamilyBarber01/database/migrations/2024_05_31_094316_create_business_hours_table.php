@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ourteams', function (Blueprint $table) {
+        Schema::create('business_hours', function (Blueprint $table) {
             $table->id();
-            $table->string('ourteamimage')->nullable();
-            $table->string('fullname');
-            $table->string('speciality')->nullable();
+            $table->string('day');
+            $table->time('from');
+            $table->time('to');
+            $table->unsignedBigInteger('step')->default(60);
+            $table->boolean('off')->default(false);
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ourteams');
+        Schema::dropIfExists('business_hours');
     }
 };

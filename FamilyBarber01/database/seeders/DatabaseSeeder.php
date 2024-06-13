@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            BusinessHourSeeder::class
+        ]);
+
         $filamentMakeUserCommand = new FilamentMakeUserCommand();
         $reflector = new \ReflectionObject($filamentMakeUserCommand);
 

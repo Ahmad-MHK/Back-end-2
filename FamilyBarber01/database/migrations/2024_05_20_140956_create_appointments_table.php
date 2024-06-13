@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->time('start');
-            $table->time('end');
-            $table->string('description');
+            $table->time('end')->nullable();
+            $table->string('description')->nullable();
             $table->foreignId('customer_id')
                 ->constrained('customers')
                 ->cascadeOnDelete();
             $table->foreignId('ourteam_id')
+                ->nullable()
                 ->constrained('ourteams')
                 ->cascadeOnDelete();
             $table->timestamps();

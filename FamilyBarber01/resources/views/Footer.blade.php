@@ -16,13 +16,10 @@
                      <div class="social-bar">
                         <div class="social-icons mb-3 iconpad text-center">
                             <a  class="slider-nav-item"><i class="fab fa-facebook"></i></a>
-                            <a  class="slider-nav-item"><i class="fab fa-google-plus"></i></a>
                             <a  class="slider-nav-item"><i class="fab fa-twitter"></i></a>
                             <a href="" target="_blank" class="slider-nav-item"><i class="fab fa-instagram"></i></a>
                             <a href="" target="_blank" class="slider-nav-item"><i class="fab fa-linkedin"></i></a>
-                            <a  target="_blank" class="slider-nav-item"><i class="fab fa-pinterest"></i></a>
-                            <a href="#" class="slider-nav-item"><i class="fab fa-youtube"></i></a>
-                        </div>
+                            <a  target="_blank" class="slider-nav-item"><i class="fab fa-pinterest"></i></a>                        </div>
                      </div>
                  </div>
              </div>
